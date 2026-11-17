@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 void quick_sort(Pessoa **ordem, long int baixo, long int alto)
 {
     long int p;
@@ -33,5 +34,20 @@ long int particiona (Pessoa **ordem, long int baixo, long int alto)
         aux=ordem[i];
         ordem[i]=ordem[j];
         ordem[j]=aux;
+    }
+}
+void leArquivo(char* nomeArquivo, )
+{
+    FILE* arquivo=fopen(nomeArquivo,"r");
+    int i=0;
+    char linha[256];
+    char palavra[MAX_LETRAS];
+    if (arquivo==NULL)
+    {
+        perror("erro ao abrir o arquivo");
+    }
+    while(i<MAX_LINHAS&&fgets(linha,sizeof(linha),arquivo!=NULL))
+    {
+
     }
 }
