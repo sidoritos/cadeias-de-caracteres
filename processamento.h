@@ -16,4 +16,6 @@ typedef struct {
 } MapaAcento;
 void remover_acentos_utf8(char *str);
 void extraiTokens (char* nome_arquivo,EntradaIndice *indice,int* total_palavras);
+void guarda_ordenado (int n_linha,char* token,EntradaIndice *indice, int* lidos);
+int busca_binaria (int lidos, char* busca, EntradaIndice *indice,int* flag);
 

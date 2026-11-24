@@ -1,18 +1,18 @@
 # depslib dependency file v1.0
-1795530335 source:c:\users\windows 10\onedrive\documentos\code blocks\cadeias de caracteres\processamento.c
+1795550252 source:c:\users\windows 10\onedrive\documentos\code blocks\cadeias de caracteres\processamento.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
 	"processamento.h"
 
-1795530318 c:\users\windows 10\onedrive\documentos\code blocks\cadeias de caracteres\processamento.h
+1795550206 c:\users\windows 10\onedrive\documentos\code blocks\cadeias de caracteres\processamento.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
 
-1795530815 source:c:\users\windows 10\onedrive\documentos\code blocks\cadeias de caracteres\main.c
+1795550850 source:c:\users\windows 10\onedrive\documentos\code blocks\cadeias de caracteres\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

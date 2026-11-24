@@ -29,8 +29,7 @@ void extraiTokens (char* nome_arquivo,EntradaIndice *indice,int *total_palavras)
                 if (pos>0)
                 {
                     palavra[pos]='\0';
-                    strcpy(indice[i].palavra,palavra);
-                    lidos++;
+                    guarda_ordenado(i,palavra,indice,&lidos);
                     pos=0;
                 }
             }
@@ -39,8 +38,7 @@ void extraiTokens (char* nome_arquivo,EntradaIndice *indice,int *total_palavras)
     if (pos>0)
     {
         palavra[pos]='\0';
-        strcpy(indice[lidos].palavra,palavra);
-        lidos++;
+        guarda_ordenado(i,palavra,indice,&lidos);
     }
     *total_palavras=lidos;
     fclose(arquivo);
@@ -84,4 +82,44 @@ void remover_acentos_utf8(char *str)
         }
     }
     str[w] = '\0';
+}
+void guarda_ordenado (int n_linha,char* token,EntradaIndice *indice, int* lidos)
+{
+    int pos,flag;
+    pos=busca_binaria(*lidos,token,indice,&flag);
+    if (flag)
+    {
+        indice[pos].linhas[indice[pos].qtd_linhas]=n_linha;
+        indice[pos].qtd_linhas++;
+    }
+    else
+    {
+        for(int i=*lidos-1;i>=pos;i--)
+        {
+            indice[i+1]=indice[i];
+        }
+        strcpy(indice[pos].palavra,token);
+        indice[pos].qtd_linhas=0;
+        *lidos+=1;
+    }
+}
+int busca_binaria (int lidos, char* busca, EntradaIndice *indice,int *flag)
+{
+    int inicio=0,fim=lidos-1,n;
+    n=(fim-inicio)/2;
+    while(inicio<=fim)
+    {
+        if(strcmp(indice[n].palavra,busca)==0)
+        {
+            (*flag)=1;
+            return n;
+        }
+        else if (strcmp(indice[n].palavra,busca)>0)
+            fim=n-1;
+        else
+            inicio=n+1;
+        n=inicio+(fim-inicio)/2;
+    }
+    (*flag)=0;
+    return inicio;
 }
